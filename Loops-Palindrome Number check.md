@@ -1,47 +1,38 @@
-# 🔺 Looping(Patterns)-Pascal's Triangle Generator in Python
-
-This project demonstrates a simple Python program to generate **Pascal’s Triangle**, where the number of rows is provided by the user.
-
----
+## Loops in Python: Palindrome Number Checker
 
 ## 🎯 Aim
-
-To write a Python program that generates **Pascal's Triangle** using numbers. The number of rows is accepted from the user.
-
----
+To write a Python program that checks whether a given number is a **palindrome** using loops.
 
 ## 🧠 Algorithm
+1. Get input from the user and assign it to a variable `num`.
+2. Assign the value of `num` to a temporary variable `temp`.
+3. Initialize a variable `rev` to 0 (used to store the reversed number).
+4. Use a `while` loop to reverse the digits:
+   - While `temp > 0`:
+     - `rev = (10 * rev) + temp % 10`
+     - `temp = temp // 10`
+5. After the loop, compare `rev` with `num`:
+   - If equal, print that the number is a palindrome.
+   - Else, print that it is not a palindrome.
 
-1. Start the program.
-2. Input the number of rows from the user.
-3. Loop from 0 to the number of rows.
-4. For each row:
-   - Print appropriate spaces to shape the triangle.
-   - Compute values using the formula:  
-     \[
-     C(n, k) = \frac{n!}{k!(n-k)!}
-     \]
-5. Print all rows of Pascal’s Triangle.
-6. End the program.
-
----
-
-## 🧪 Program
+## 🧾 Program
 ```
-import math
+num = int(input("Enter a number: "))
+temp = num
+rev = 0
 
-rows = int(input("Enter number of rows: "))
+while temp > 0:
+    rev = (rev * 10) + (temp % 10)
+    temp = temp // 10
 
-for i in range(rows):
-    print(" " * (rows - i), end=" ")
-    for j in range(i + 1):
-        print(math.comb(i, j), end=" ")
-    print()
+if num == rev:
+    print(num, "is a palindrome number.")
+else:
+    print(num, "is not a palindrome number.")
 
 ```
-
-## Sample Output
-<img width="1907" height="1013" alt="image" src="https://github.com/user-attachments/assets/b21a5bb8-5195-40c6-96e7-85fd0c57415d" />
+## Output
+<img width="1907" height="1011" alt="image" src="https://github.com/user-attachments/assets/ef15f4d2-b868-4c94-9ecc-ee2950c85dc5" />
 
 ## Result
-The program successfully generates Pascal’s Triangle for the given number of rows using loops and the binomial coefficient formula.
+The program successfully checks whether a given number is a palindrome using loops.
